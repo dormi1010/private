@@ -1,3 +1,34 @@
 hello git
 change test1
 change branch test
+
+
+# config確認
+
+	% git config --list
+
+# origin url を変更する
+
+	% git remote set-url origin <新しいリポジトリURL>
+
+
+	'''ブランチでの作業'''
+
+# ブランチ作成
+	% git branch <ブランチ名>
+
+# ブランチ確認 （頭に * のついているのが現在のブランチ）
+	% git branch
+
+# ブランチ切り替え（移動）
+	% git checkout <ブランチ名>
+
+# 変更（ブランチ先にコミットしたりする）
+	% git status
+	% git diff
+	% git add .
+	% git status
+	% git commit -m "コメント"
+
+# リモートにPush
+	git push origin <ブランチ名>
