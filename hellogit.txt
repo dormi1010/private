@@ -12,7 +12,7 @@ change branch test
 	% git remote set-url origin <新しいリポジトリURL>
 
 
-	'''ブランチでの作業'''
+#####	'''ブランチでの作業'''  #####
 
 # ブランチ作成
 	% git branch <ブランチ名>
@@ -32,3 +32,21 @@ change branch test
 
 # リモートにPush
 	git push origin <ブランチ名>
+
+##### 区切りが良くなって、マージしたくなった時 #####
+
+# マージ先(master)に移動
+	% git checkout master
+
+# さっき作成したブランチをマージ先にマージ
+	% git merge <ブランチ名>
+
+# ログ確認（さっきのブランチの変更内容がマージ先に反映されているか確認）
+	% git log
+
+# Pushする
+	% git push origin master
+
+# マージ後に削除
+	% git branch -d <ブランチ名>
+	% git push origin :<ブランチ名>
