@@ -1,3 +1,20 @@
+
+
+##### ローカルリポジトリ作成 #####
+
+# .gitフォルダ生成
+
+	% git init
+
+# origin登録
+
+	% git remote add origin https://github.com/[User name]/xxx.git
+
+# リモートへpush(以降は% git pushのみで可)
+
+	% git push -u origin master
+
+
 # config確認
 
 	% git config --list
@@ -7,7 +24,7 @@
 	% git remote set-url origin <新しいリポジトリURL>
 
 
-#####	'''ブランチでの作業'''  #####
+##### ブランチでの作業 #####
 
 # ブランチ作成
 	% git branch <ブランチ名>
