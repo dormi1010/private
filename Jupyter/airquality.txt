@@ -1,0 +1,495 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jupyter Notebook Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <meta name="robots" content="noindex,nofollow">
+  
+
+  <!--NEW RELIC Start Perf Measurement-->
+  
+  <!--NREND-->
+
+  <!-- Le styles -->
+  <script src="/cdn-cgi/apps/head/MuIIl4I_IVFkxldaVu1mdWee9as.js"></script><link href="/static/build/styles.css?v=20d08094b44c75ee15fd5045973d36e5" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="/static/ico/ipynb_icon_16x16.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="/static/ico/apple-touch-icon-144-precomposed.png?v=5a3c9ede93e2a8b8ea9e3f8f3da1a905">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="/static/ico/apple-touch-icon-114-precomposed.png?v=45d86fc8f24dc00638035e1dd7a6d898">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="/static/ico/apple-touch-icon-72-precomposed.png?v=540b5eb0f3cfd25f1439d1c9bd30e15f">
+  <link rel="apple-touch-icon-precomposed"
+        href="/static/ico/apple-touch-icon-57-precomposed.png?v=225f0590e187e1458625654f10a28f56">
+  
+  
+
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Notebook on nbviewer">
+  <meta name="twitter:description" content="Check out this Jupyter notebook!">
+
+  
+  <meta name="twitter:domain" content="nbviewer.ipython.org">
+  <meta name="twitter:image:src" content="http://ipython.org/ipython-doc/dev/_images/ipynb_icon_128x128.png">
+
+  
+    <link href="/static/build/notebook.css?v=0a1fd720873b368f697f2028629e42e3" rel="stylesheet">
+  
+
+  
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      init_mathjax = function() {
+        if (window.MathJax) {
+          // MathJax loaded
+          MathJax.Hub.Config({
+            TeX: {
+              equationNumbers: {
+                autoNumber: "AMS",
+                useLabelIds: true
+              }
+            },
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: true,
+              processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+              styles: {'.MathJax_Display': {"margin": 0}},
+              linebreaks: { automatic: true }
+            }
+          });
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+      }
+      init_mathjax();
+    </script>
+  
+
+</head>
+
+<body class="nbviewer">
+
+  <!-- These are loaded at the top of the body so they are available to
+       notebook cells when they are loaded below. -->
+  <script src="/static/components/jquery/dist/jquery.min.js?v=c9f5aeeca3ad37bf2aa006139b935f0a"></script>
+  <script src="/static/components/requirejs/require.js?v=6da8be361b9ee26c5e721e76c6d4afce"></script>
+  <script src="/static/components/moment/min/moment.min.js?v=89f87298ad94aa1e6b92f42eb66da043"></script>
+
+<!-- Navbar
+================================================== -->
+  <nav id="menubar" class="navbar navbar-default navbar-fixed-top" data-spy="affix">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="/static/img/nav_logo.svg?v=479cefe8d932fb14a67b93911b97d70f" width="159"/>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="active" href="http://jupyter.org">JUPYTER</a>
+          </li>
+          <li>
+    <a href="/faq" title="FAQ" >
+      
+        <span>FAQ</span>
+      
+    </a>
+  </li>
+
+          
+  
+    
+  
+    
+      
+        <li>
+    <a href="/format/script/github/maskot1977/Statistics2017/blob/master/IceCreamStatistics09.ipynb" title="View as Code" >
+      <span class="fa fa-code fa-2x menu-icon"></span>
+      <span class="menu-text">View as Code</span>
+    </a>
+  </li>
+      
+    
+  
+
+  
+    <li>
+    <a href="#" title="Python 3 Kernel" >
+      <span class="fa fa-server fa-2x menu-icon"></span>
+      <span class="menu-text">Python 3 Kernel</span>
+    </a>
+  </li>
+  
+
+  
+    <li>
+    <a href="https://github.com/maskot1977/Statistics2017/blob/master/IceCreamStatistics09.ipynb" title="View on GitHub" >
+      <span class="fa fa-github fa-2x menu-icon"></span>
+      <span class="menu-text">View on GitHub</span>
+    </a>
+  </li>
+  
+
+  <li>
+    <a href="https://raw.githubusercontent.com/maskot1977/Statistics2017/master/IceCreamStatistics09.ipynb" title="Download Notebook" download>
+      <span class="fa fa-download fa-2x menu-icon"></span>
+      <span class="menu-text">Download Notebook</span>
+    </a>
+  </li>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      
+      
+    </div>
+  </nav>
+
+  <div class="container container-main">
+    
+  
+  <ol class="breadcrumb">
+    
+      <li>
+        <a href="/github/maskot1977/Statistics2017/tree/master">Statistics2017</a>
+      </li>
+    
+      <li>
+        <a href="/github/maskot1977/Statistics2017/tree/master/IceCreamStatistics09.ipynb">IceCreamStatistics09.ipynb</a>
+      </li>
+    
+  </ol>
+  
+  <div id="notebook">
+    <div id="notebook-container">
+      
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#12450;&#12452;&#12473;&#12463;&#12522;&#12540;&#12512;&#32113;&#35336;&#23398;-with-Python-&#31532;9&#31456;">&#12450;&#12452;&#12473;&#12463;&#12522;&#12540;&#12512;&#32113;&#35336;&#23398; with Python &#31532;9&#31456;<a class="anchor-link" href="#&#12450;&#12452;&#12473;&#12463;&#12522;&#12540;&#12512;&#32113;&#35336;&#23398;-with-Python-&#31532;9&#31456;">&#182;</a></h1><p>第１１回講義（2017年10月31日講義、11月3日課題提出締切）</p>
+<p>このページは、<a href="http://kogolab.chillout.jp/elearn/icecream/index.html" target="_blank">アイスクリーム統計学にようこそ！</a>の内容をプログラミング言語 Python に合わせて書き直したものです（著作権者の許諾を得て利用しております）。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 STYLE="background: #c2edff;padding: 0.5em;"><a href="http://kogolab.chillout.jp/elearn/icecream/chap9/sec0.html" target="_blank">第９章 因子分析(2)</a></h1><P class="photo"><img src="image/icecream.jpg" width="172" height="179"></P>
+<P>アイスクリームの分類を手にして、店長が何か考えているようです。</P>
+<P class="photo"><img src="image/tencho-futsu.jpg" width="130" height="145"></P>
+<P class=speech>「ふむふむ、どうやら今のアイスクリームのメニューは、和風、ナッツ、チョコ、ミントの4つに分類できそうだな」</P>
+<P class=speech>───因子分析によれば、そのようですね。</P>
+<P class=speech>「でも、そんなことは直観的にわかりそうなことだよな」</P>
+<P class=speech>───でも、それを統計分析によって確認できたということはすごいことじゃないですか？</P>
+<P class=speech>「それはそうだけどね。なんか物足りない」</P>
+<P class=speech>───物足りないですか。</P>
+<P class=speech>「あ、そうだ。私の仮説を検討してくれないか？」</P>
+<P class=speech>───仮説？　あ～、あの……</P>
+<P class=speech>「そう。一人っ子はミルク系が好きかな～、長子は渋め系が好きかな～、って感じの仮説なんだけどさ」</P>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 STYLE="background: #c2edff;padding: 0.5em;"><a href="http://kogolab.chillout.jp/elearn/icecream/chap9/sec1.html" target="_blank">9.1　単純構造</a></h2><P class="photo"><img src="image/aiko-kangaekomu.jpg" width="150" height="137"></P>
+<P class="speech">───まいったな～。店長の変な仮説を検討しなくちゃならないみたいだわ。しかたないわ。ちょっと自分で考えてみよう。</P>
+<P class="speech">───店長の出した「出生順によるアイスクリームの好みの差」というのは「トンデモ」っぽい感じがするから、「性別によるアイスクリームの好みの差」で考えたらどうかな。たとえば、「ミント系のアイスクリームの好みには、男女間で差がある」というような仮説。もし、これで差があるのであれば、男女別のお勧めメニューみたいなのが考えられるわね。</P>
+<P class="speech">「どうしたのアイ子ちゃん。むずかしい顔をして」</P>
+<P class="speech">───あ、三ヶ島先輩。「性別によるアイスクリームの好みの差」があるかどうかを考えているところなんです。たとえば、ミント系のアイスクリームの好みには、男女間で差があるのかどうかを調べたいと思って。</P>
+<P class="speech">「ふむふむ」</P>
+<P class="speech">───あ、そうか。因子分析の結果から、ミント系のアイスクリームは、「ミント」と「チョコミント」ということがわかっているんだから、その２つの好みのデータを男女別に平均して比べればいいんじゃないかな。</P>
+<P class="speech">「なるほど、いい線いっているよ。そのやり方を検討してみよう」</P>
+<P class="speech">───三ヶ島先輩、お願いします。</P>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h4 style="border-bottom: solid 1px black;">単純構造</h4></p>
+<P class="photo"><img src="image/senpai-futsu.jpg" width="152" height="127"></P>
+<P>13種類のアイスクリームの好みを因子分析した結果はこうなっていたね。</P>
+<P class="photo"><img src="image/score1.jpg" width="499" height="326"></P>
+<P>因子2のところを見ると、確かにミントとチョコミントの因子負荷が高くなっている（オレンジ色の枠）。だから、ミントとチョコミントの好みの元データを男女別に平均して比較するというのは、基本的な方法としてはいいだろう。</P>
+<P>だけど、因子2のところを詳しく見ていくと（青色の枠）、抹茶は-0.199という因子負荷になっていて、ミントほどじゃないけど、無視できない負荷になっているね。それから、クッキーは0.330という正の負荷になっていて、ミントとは逆の方向に負荷がかかっている。これも無視できない数値だ。</P>
+<P class="photo"><img src="image/aiko-fushigi.jpg" width="148" height="128"></P>
+<P class="speech">───うーん。ミントとチョコミントだけに因子負荷がかかっていて、その他は全部ゼロならいいのに～。</P>
+<P>そうだね。そうであれば、全体がすごくシンプルになるよね。</P>
+<P>それぞれの観測変数について、特定の因子の因子負荷だけが高くて、それ以外はゼロに近いものであれば、因子分析の解釈がすごく楽だ。たとえば、以前にやった、マカダミアナッツ、ウォールナッツ、チョコチップ、チョコレートによる因子分析は、これに近いシンプルな因子負荷を示していたね。</P>
+<P>こういうパターンを「<em>単純構造</em>」と呼んでいるんだ。</P>
+<P class="photo"><img src="image/factor11.jpg" width="363" height="184"></P>
+<P class="speech">───あーん、今回の因子分析も単純構造にならないんですか？</P>
+<P>いや、観測変数が増えてくると単純構造になることはまれだよ。それに、単純構造になるということは、観測変数が完璧に分類できるということであって、通常はそういうことはあまりない。</P>
+<P>たとえば、チョコミントのような、チョコレート味でもありミント味でもあるようなものが入っていれば、単純構造にはならないだろうし、むしろチョコミントがチョコ系とミント系の中間くらいに位置することがわかれば因子分析をやっている意味があるというものだ。</P>
+<P class="speech">───単純構造じゃないということは、単にミントとチョコミントの点数を平均したものを男女で比較するわけにはいかないですよね？　困ったな～</P>
+<P class="photo"><img src="image/aiko-kangaekomu.jpg" width="150" height="137"></P>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 STYLE="background: #c2edff;padding: 0.5em;"><a href="http://kogolab.chillout.jp/elearn/icecream/chap9/sec2.html" target="_blank">9.2　因子得点</a></h2><P class="photo"><img src="image/senpai-setsumei.jpg" width="135" height="136"></P>
+<P class="speech">「単純構造になることは、まれなので、アイスクリームの好みについての素点をそのまま平均したものは使えないということになる。まあ、だいたいの検討をつけるにはいいかもしれないけどね」</P>
+<P class="speech">───それじゃ、どうしたらいいんでしょうか、三ヶ島先輩。</P>
+<P class="speech">「因子分析の結果から、因子得点というものが計算できるんだ。素点の代わりにこれが使えるんだよ」</P>
+<P class="speech">───因子得点ですか？　説明お願いします！</P>
+<P class="photo"><img src="image/aiko-ganbaru.jpg" width="181" height="133"></P>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h4 style="border-bottom: solid 1px black;">因子得点</h4></p>
+<P class="photo"><img src="image/senpai-futsu.jpg" width="152" height="127"></P>
+<P><em>因子得点</em>というのは、それぞれのケース（被験者）について、その回答パターンによって、それぞれの因子に対してどれくらいの重みを持っているかを計算したものだよ。</P>
+<P>因子得点を計算する前に、<em>因子得点係数</em>というものを計算する必要がある。</P>
+<P>因子得点係数というのは、次のようなものだ。</P>
+<P class="photo"><img src="image/score2.jpg" width="391" height="279"></P>
+<P>たとえば、Aさんというケースで、因子2（ミントの因子）の因子得点を求めるには、</P><!--
+<ul>
+  <li>Aさんの　　　ミルクティの回答：5　×　因子2の係数：0.01907　＝　0.09535</li>
+  <li>Aさんのマカダミアナッツの回答：6　×　因子2の係数：0.06168　＝　0.37008</li>
+  <li></li>
+  <li>　・・・途中省略・・・</li>
+  <li></li>
+  <li>Aさんの　　　　　あずきの回答：4　×　因子2の係数：-0.02063　＝　-0.08252</li>
+</ul>
+<P align="right">★ここではAさんの回答データは適当な値です★</P>
+!-->
+
+<P>回答データを変数ごとに標準化したものと因子得点係数をかけ算して、それを合計することによって出る。</P>
+<P class="speech">───確かに因子2の係数を見てみると、ミントで-0.70703、チョコミントで-0.28604、となっていて、他の種類よりも値が（負の方向に）大きくなっていますね。ということは、ミントやチョコミントの回答で好きと答えると、因子2の因子得点が（負の方向に）大きくなるということですね。</P>
+<P>うん、そういうことだね。</P>
+<P class="speech">───でも、因子得点係数と元のデータをかけ算していくのは、結構大変な作業ですね。</P>
+<P>そうだね。でも因子分析の計算ソフトはそこまで計算してくれるよ。</P>
+<P>これを見てごらん。</P>
+<P class="photo"><img src="image/score3.jpg" width="369" height="400"></P>
+<P class="speech">───うわ、すごい。80人分の因子得点が出ていますね！　これで男女の比較ができます。</P>
+<P class="photo"><img src="image/corn.jpg" width="120" height="91"></P>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 style="padding: 0.25em 0.5em;color: #494949;background: transparent;border-left: solid 5px #7db4e6;">課題9.1</h4><p>「アイスクリームの好みについてのアンケート」のデータから13種類のアイスクリームのデータを利用して因子分析を行った。次のファイルは、因子得点のデータである。</p>
+<p><a href="fscore.txt">因子得点のデータ</a></p>
+<p>ケースの1から40番は女性のデータ、41から80番は男性のデータである。</p>
+<p>(1)　男女それぞれについて、因子1から4の因子得点の平均値と標準偏差を求めなさい。</p>
+<p>(2)　(1)から言えることを書きなさい。</p>
+<p>(3)　(2)について、統計学的に検討するためには、どのような検定方法を使えばいいか。その方法の名前を書きなさい。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 課題9.1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 STYLE="background: #c2edff;padding: 0.5em;">アイスクリーム統計学 第９章 課題</h2><p><strong>課題9.1</strong> を解いて、指定のメールアドレスまでメールしてください。メール送信後は、エラーが帰ってきてないことを確認してください（メールアドレスを間違える人がときどき居ます）。</p>
+<ul>
+<li>締切：11月3日（今すぐでなくても結構です）</li>
+<li>メールタイトル：「アイスクリーム統計学 第９章」</li>
+<li>学籍番号と氏名を明記すること。</li>
+<li>感想などがあれば書いてくれると嬉しいです。次回以降の講義の改善につながるかも知れません。</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># アイスクリーム統計学 第９章 課題</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h2 STYLE="background: #c2edff;padding: 0.5em;">終わったら、<a href="IceCreamStatistics10.ipynb">第１０章：主成分分析</a> に進んでください。</h2>
+（2017年11月3日講義、11月7日課題提出締切）</p>
+
+</div>
+</div>
+</div>
+ 
+
+
+    </div>
+  </div>
+
+  </div>
+
+
+  
+    <footer class="footer hidden-print">
+      <div class="container">
+        <div class="col-md-4">
+          <p>
+            This website does not host notebooks, it only renders notebooks
+            available on other websites.
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            Delivered by <a href="http://www.fastly.com/">Fastly</a>,
+            Rendered by <a href="https://developer.rackspace.com/?nbviewer=awesome">Rackspace</a>
+          </p>
+          <p>
+            nbviewer GitHub <a href="https://github.com/jupyter/nbviewer">repository</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          
+  
+            
+              <p>
+                nbviewer version:
+                <a href="https://github.com/jupyter/nbviewer/commit/89297bd5c4de8e27e009971b5ede1bbc369fbb05">
+                  89297bd
+                </a>
+              </p>
+            
+          
+  
+  <p>
+    nbconvert version: <a href="https://github.com/jupyter/nbconvert/releases/tag/5.3.1">
+      5.3.1
+    </a>
+  </p>
+  
+
+          
+  
+  
+  <p>
+    Rendered
+    <span class='date' data-date='Fri, 03 Nov 2017 06:02:37 UTC' title='Fri, 03 Nov 2017 06:02:37 UTC'>(Fri, 03 Nov 2017 06:02:37 UTC)</span>
+  </p>
+  
+
+        </div>
+      </div>
+    </footer>
+  
+
+  <script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script>
+  <script src="/static/components/bootstrap/js/bootstrap.min.js?v=5869c96cc8f19086aee625d670d741f9"></script>
+  <script src="/static/components/headroom.js/dist/headroom.min.js?v=b0a311ea668f8e768ea375f4a7abb81c"></script>
+  <script src="/static/components/headroom.js/dist/jQuery.headroom.min.js?v=f3a1bae118315d0c234afc74dc6aab71"></script>
+
+  
+  
+  <script>
+    $(function(){ $("#menubar").headroom({
+      tolerance: 5,
+      offset: 205,
+      classes: {
+        initial: "animated",
+        pinned: "slideInDown",
+        unpinned: "slideOutUp"
+      }
+    })});
+  </script>
+
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-52617120-5', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  <script>
+    require({
+        paths: {
+          moment: "/static/components/moment/min/moment.min.js?v=89f87298ad94aa1e6b92f42eb66da043"
+        }
+      }, ["moment"], function(moment){
+      var date = $("footer .date"),
+        m = moment(new Date(date.data('date'))),
+        update = function(){ date.text(m.fromNow()); };
+      setInterval(update, 61*1000);
+      update();
+      var w = $(window).scroll(function(event){
+        $("body").toggleClass("scrolled", w.scrollTop() > 0);
+      });
+    });
+  </script>
+  <!--NEW RELIC Stop Perf Measurement-->
+  
+  <!--NEW RELIC End-->
+</body>
+</html>
