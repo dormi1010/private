@@ -87,7 +87,7 @@ void printlist(struct cell *init){
 	p = init;
 printf("{");
 	while (p != NULL){
-		printf("%d\n", p->element);
+		printf("%d,", p->element);
 		p = p->next;
 	}
 printf("}\n");
