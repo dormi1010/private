@@ -8,29 +8,14 @@ int main()
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n, x = 0, i = 0;
+    int n;
     cin >> n;
-    while (x < n)
-    {
-        x++;
-        i = x;
-        if (x % 3 == 0)
-        {
-            cout << " " << x;
-        }
-        else
-        {
-            while (i)
-            {
-                if (i % 10 == 3)
-                {
-                    cout << " " << x;
-                    break;
-                }
-                i /= 10;
-            }
-        }
-    }
-    cout << endl;
-    return 0;
+    vector<int> a(n);
+
+    REP(i, n)
+    cin >> a.at(i);
+    reverse(a.begin(), a.end());
+    REP(i, n - 1)
+    cout << a.at(i) << " ";
+    cout << a.at(n - 1) << endl;
 }
