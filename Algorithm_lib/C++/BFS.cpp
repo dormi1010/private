@@ -13,41 +13,34 @@ using Pl = pair<ll, ll>;
 
 using Graph = vector<vector<int>>;
 
-vector<ll> BFS(Graph G, ll V)
-{
-    vector<ll> dist(G.size(), -1); //全頂点を-1（未訪問）に初期化
-    queue<ll> que;
+vector<ll> BFS(Graph G, ll V) {
+  vector<ll> dist(G.size(), -1);  //全頂点を-1（未訪問）に初期化
+  queue<ll> que;
 
-    dist[V] = 0; //初期ノードをdistとqueueにセット
-    que.push(V);
+  dist[V] = 0;  //初期ノードをdistとqueueにセット
+  que.push(V);
 
-    //BFS開始
+  // BFS開始
 
-    while (!que.empty())
-    {
-        int v = que.front(); //頂点vを訪問（最初は頂点0）
-        que.pop();
+  while (!que.empty()) {
+    int v = que.front();  //頂点vを訪問（最初は頂点0）
+    que.pop();
 
-        for (int nv : G[v])
-        { //頂点vから辿れる全頂点を訪問
-            if (dist[nv] != -1)
-            { //訪問済頂点は上書きしない
-                continue;
-            }
-            else
-            {
-                dist[nv] = dist[v] + 1; //頂点nvの原点からの距離を更新
-                que.push(nv);
-            }
-        }
+    for (int nv : G[v]) {    //頂点vから辿れる全頂点を訪問
+      if (dist[nv] != -1) {  //訪問済頂点は上書きしない
+        continue;
+      } else {
+        dist[nv] = dist[v] + 1;  //頂点nvの原点からの距離を更新
+        que.push(nv);
+      }
     }
-    //BFS完了
-    return dist;
+  }
+  // BFS完了
+  return dist;
 }
 
-int main()
-{
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    return 0;
+int main() {
+  cin.tie(0);
+  ios::sync_with_stdio(false);
+  return 0;
 }
