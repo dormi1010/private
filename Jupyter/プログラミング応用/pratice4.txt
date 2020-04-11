@@ -1,0 +1,94 @@
+14B12785 藤森慶一郎
+問1と問2の最短距離はできましたが、問2の到達可能なマスの数が求められませんでした。
+
+#問１
+def calc(n):
+    res = 0
+    for i in range(n):
+        for j in range(i):
+            res+=j
+    return res
+#オーダーはn^2
+
+import time
+
+def timeck(n):
+    t1 = time.time()
+    calc(n)
+    t2 = time.time()
+    etime = t2-t1
+    return etime
+
+import scipy.optimize
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+l = []
+m = [0,1,2,3,4,5,6,7,8,9,10]
+for n in range(11):
+    l.append(timeck(1000*n))
+    n +=1
+
+def func(x,a,b,c):
+    return a*x**2 + b*x + c
+
+result,covariance=scipy.optimize.curve_fit(func,m,l)
+print('a =', result[0])
+print('b =', result[1])
+print('c =', result[2])
+x = np.arange(0, 10, 0.1)
+y = (result[0] * x **2) + (result[1] * x) + result[2]
+plt.scatter(m, l, alpha=0.5)
+plt.plot(x,y)
+
+
+#問2(到達可能なマス数)
+prev = {}
+def dfs(v,p):
+    if v in prev: return
+    (x,y)=v
+    if (0<=x<w) and (0<=y<h) and field[x][y]!='#':
+        prev[v]=p
+        for (dx,dy) in [(1,0),(-1,0),(0,1),(0,-1)]:
+            dfs((x+dx,y+dy),v)
+dfs(s,'start')
+
+import collections
+c = collections.Counter(prev)
+len(c)
+>>6279
+
+問２（最短距離）
+
+from collections import deque
+import urllib.request
+url = 'http://yambi.jp/lecture/advanced_programming2018/maze3.txt'
+urllib.request.urlretrieve(url, 'maze3.txt')
+
+f = open('maze3.txt','r')
+field = [list(l.rstrip()) for l in f]
+f.close()
+
+w = len(field[0])
+h = len(field)
+for i in range(h):
+    for j in range(w):
+        if field[i][j]=='S': s=(i,j)
+        if field[i][j]=='G': g=(i,j)
+            
+prev = {}
+dist = {}
+queue = deque([(s,'start',0)])
+while len(queue)>0:
+    v, p, d = queue.popleft()
+    if v in dist: continue
+    (x,y)=v
+    if (0<=x<w) and (0<=y<h) and field[x][y]!='#':
+        dist[v] = d
+        prev[v] = p
+        for (dx,dy) in [(1,0),(-1,0),(0,1),(0,-1)]:
+            queue.append(((x+dx,y+dy),v,d+1))
+
+dist[g]
+>>216

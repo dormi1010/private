@@ -1,0 +1,45 @@
+14B12785 “¡X Œcˆê˜Y
+
+
+#–â‚P
+i = 1
+a = 0
+while i <= 100:
+    a = a + i ** 2
+    i += 1
+print(a)
+##338350
+
+#–â‚Q
+i = 1
+a = 0
+while i <= 1000:
+    if i % 3 == 0 or i % 5 == 0:
+        a = a + i
+    i += 1
+print(a)
+##234168
+
+#–â‚R
+x = set('abracadabra')
+y = set('bibbidi-bobbidi-boo')
+x & y
+##{'b', 'd'}
+
+#–â‚S
+i = 1
+a = 0
+num = []
+while i <= 100000:
+    a = 0
+    s = str(i) 
+    num = list(map(int, list(s)))
+    for x in list(num):
+        a += x ** 4
+    if a == i:
+        print (a)
+    i += 1
+##1
+##1634
+##8208
+##9474
