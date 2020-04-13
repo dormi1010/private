@@ -25,7 +25,7 @@ int main() {
     N = N / 2;
     for (int i = 1; i <= 28; i++) {
       ans += N / (ll)pow(5, i);
-      cout << ans << endl;
     }
   }
+  cout << ans << endl;
 }
