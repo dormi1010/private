@@ -32,6 +32,7 @@ int main() {
   // div1.erase(unique(div1.begin(), div1.end()), div1.end());
 
   ll ans = 0;
+  if (N > 2) ans++;
 
   for (auto a : div1) {
     ll tmp = N;
@@ -44,5 +45,5 @@ int main() {
   for (auto b : div2) {
     ans++;
   }
-  cout << ans + 2 << endl;
+  cout << ans + 1 << endl;
 }
