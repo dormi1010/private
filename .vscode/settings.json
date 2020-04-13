@@ -20,4 +20,5 @@
     "[cpp]": {
         "editor.tabSize": 4, //tab幅4
     },
+    "C_Cpp.errorSquiggles": "Disabled",
 }
