@@ -12,6 +12,20 @@ using Graph = vector<vi>;
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  ll N;
+  ll N, ans = 0;
   cin >> N;
+  if (N % 2 == 1) {
+    cout << 0 << endl;
+    return 0;
+    //    for (int i = 1; i <= 18; i++) {
+    //      ans += N / pow(5, i);
+  }
+
+  else {
+    N = N / 2;
+    for (int i = 1; i <= 28; i++) {
+      ans += N / (ll)pow(5, i);
+      cout << ans << endl;
+    }
+  }
 }
