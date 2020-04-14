@@ -1,0 +1,24 @@
+{
+    "python.pythonPath": "C:\\Users\\f14ke\\Anaconda3",
+    "terminal.integrated.shell.windows": "C:\\windows\\System32\\cmd.exe",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "window.zoomLevel": 0,
+    "C_Cpp.default.cppStandard": "c++14",
+    "editor.renderWhitespace": "all",
+    "C_Cpp.clang_format_style": "Google",
+    "diffEditor.renderSideBySide": false, // Git の差分を行内に表示
+    "editor.formatOnPaste": true, // ペースト時に自動でフォーマット
+    "editor.formatOnSave": true, // ファイル保存時に自動でフォーマット
+    "editor.formatOnType": true, // 入力した行を自動でフォーマット
+    "editor.minimap.showSlider": "always", // 表示領域をミニマップで常にハイライト
+    "editor.renderControlCharacters": true, // 制御文字を表示
+    "editor.renderLineHighlight": "all", // 選択行を行番号含めすべてハイライト
+    "editor.snippetSuggestions": "top", // Emmet などのスニペット候補を優先して表示
+    "editor.wordWrap": "on", // エディターの幅で折り返し
+    "workbench.startupEditor": "none", // Welcome Page を表示しない
+    "[cpp]": {
+        "editor.tabSize": 4, //tab幅4
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+}

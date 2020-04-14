@@ -1,0 +1,211 @@
+14B12785 藤森　慶一郎
+#問１
+#ヒープソート
+配列をヒープ構造にし、データの先頭を取り出す操作を繰り返す手法。 一般的に時間計算量はO(nlogn)だが、ヒープ構造が偏ると最悪O(n^2)になってしまう。
+
+import random
+
+def heap_sort(l):
+    i = 0
+    n = len(l)
+
+    while(i < n):
+        upheap(l, i)
+        i += 1
+
+    while(i > 1):
+        i -= 1
+        tmp = l[0]
+        l[0] = l[i]
+        l[i] = tmp
+
+        downheap(l, i-1)
+
+
+def upheap(l, n):
+    while n != 0:
+        root = int((n - 1) / 2)
+        if l[n] > l[root]:
+            tmp = l[n]
+            l[n] = l[root]
+            l[root] = tmp
+            n = root
+        else:
+            break
+
+def downheap(l, n):
+    if n == 0: return
+    root = 0
+    while True:
+        child = 2 * root + 1
+        if child > n: break
+        if (child < n) and l[child] < l[child + 1]:
+            child += 1
+        if l[root] < l[child]: 
+            tmp = l[child]
+            l[child] = l[root]
+            l[root] = tmp
+            root = child; 
+        else:
+            break
+
+def bubble_sort(l):
+    for i in range(len(l)):
+        for j in range(len(l)-i-1):
+            if l[j]>l[j+1]:
+                l[j],l[j+1]=l[j+1],l[j]
+
+def merge_sort(l):
+    _merge_sort(l,0,len(l))
+    
+def _merge_sort(l,s,t):
+    if t-s<=1: return
+    m=(s+t)//2
+    _merge_sort(l,s,m) 
+    _merge_sort(l,m,t) 
+    a,j,k = [],s,m
+    for i in range(s,t):
+        if k==t or (j<m and l[j]<l[k]):
+            a.append(l[j])
+            j+=1
+        else:
+            a.append(l[k])
+            k+=1
+    l[s:t]=a
+
+def quick_sort(l):
+    if len(l)<=1:return
+    pivot = random.choice(l)
+    le = [i for i in l if i<pivot]
+    eq = [i for i in l if i==pivot]
+    gr = [i for i in l if i>pivot]
+    quick_sort(le)
+    quick_sort(gr)
+    l[:]=(le+eq+gr)
+
+def cktime():
+    arr = range(10000)
+    b = random.sample(arr,10000)
+    %time bubble_sort(b)
+    m = random.sample(arr,10000)
+    %time merge_sort(m)
+    q = random.sample(arr,10000)
+    %time quick_sort(q)
+    h = random.sample(arr,10000)
+    %time heap_sort(h)
+    return
+
+cktime()
+>Wall time: 6.89 s 	#bubble_sort
+>Wall time: 31.2 ms	#merge_sort
+>Wall time: 22.7 ms	#quick_sort
+>Wall time: 31.2 ms	#heap_sort
+
+#問２
+
+def backtrack(n):
+    _backtrack([],n)
+    
+def _backtrack(a,n):
+    if len(a)==n: 
+        global ans
+        ans += 1
+        return
+    for s in range(n):
+        if s in a: continue
+        if any([len(a)-i==abs(a[i]-s) for i in range(len(a))]): continue
+        a.append(s)
+        _backtrack(a,n)
+        a.pop()
+
+ans  = 0
+backtrack(8)
+print(ans)
+>>92
+
+ans  = 0
+backtrack(9)
+print(ans)
+>>352
+
+ans  = 0
+backtrack(10)
+print(ans)
+>>724
+
+ans  = 0
+backtrack(11)
+print(ans)
+>>2680
+
+ans  = 0
+backtrack(12)
+print(ans)
+>>14200
+
+#問３
+def show(table):
+    for l in table:
+        print(''.join(map(str,l)))
+    print()
+    
+prob = [
+  [0, 0, 5,  3, 0, 0,  0, 0, 0],
+  [8, 0, 0,  0, 0, 0,  0, 2, 0],
+  [0, 7, 0,  0, 1, 0,  5, 0, 0],
+   
+  [4, 0, 0,  0, 0, 5,  3, 0, 0],
+  [0, 1, 0,  0, 7, 0,  0, 0, 6],
+  [0, 0, 3,  2, 0, 0,  0, 8, 0],
+   
+  [0, 6, 0,  5, 0, 0,  0, 0, 9],
+  [0, 0, 4,  0, 0, 0,  0, 3, 0],
+  [0, 0, 0,  0, 0, 9,  7, 0, 0],
+]
+
+def check(table,i,j,k): 
+    for l in range(9):
+        if table[i][l]==k: return False
+        if table[l][j]==k: return False
+        if table[l//3+(i//3)*3][l%3+(j//3)*3]==k: return False
+    return True
+
+def _solve(table,p):
+    if p==81:
+        show(table)
+        return
+    (i,j) = divmod(p,9)
+    if table[i][j]: 
+        _solve(table,p+1)
+    else:
+        for k in range(1,10)
+            if check(table,i,j,k):
+                table[i][j]=k
+                _solve(table,p+1)
+                table[i][j]=0
+                
+
+def solve(table): _solve(table,0)
+
+show(prob)
+solve(prob)
+>>
+005300000
+800000020
+070010500
+400005300
+010070006
+003200080
+060500009
+004000030
+000009700
+
+145327698
+839654127
+672918543
+496185372
+218473956
+753296481
+367542819
+984761235
+521839764

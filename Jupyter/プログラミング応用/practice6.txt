@@ -1,0 +1,99 @@
+14B12785 “¡X@Œcˆê˜Y
+
+#–â‚P
+import copy
+import pandas as pd
+def weight_dp(items,B):
+    n = len(items)
+    table = [[0]*(B+1) for i in range(n)]
+    itemtable =  [[[]]*(B+1) for i in range(n)]
+    for k in range(n):
+        (w,p,name)=items.iloc[k]
+        for b in range(B+1):
+            if k==0:
+                apple = ['apple']
+                if b>=w: 
+                    table[k][b]=p
+                    itemtable[k][b] = copy.deepcopy(apple)
+            else:
+                if b>=w: 
+                    table[k][b]=max(table[k-1][b],table[k-1][b-w]+p)
+                    if table[k-1][b] < table[k-1][b-w]+p:
+                        itemtable[k][b] = copy.deepcopy(itemtable[k-1][b-w])
+                        itemtable[k][b].append(name)
+                    else:
+                        itemtable[k][b] = copy.deepcopy(itemtable[k-1][b])
+                else:
+                    table[k][b] = table[k-1][b]
+                    itemtable[k][b] = copy.deepcopy(itemtable[k-1][b])                                 
+    return table[n-1][B],itemtable[n-1][B]
+
+import urllib.request
+import pandas as pd
+url = 'http://yambi.jp/lecture/advanced_programming2018/vegetables.txt'
+urllib.request.urlretrieve(url, 'knapsack.txt')
+df = pd.read_table('knapsack.txt', sep = '\s+',names = {'weight','price','name'})
+%time weight_dp(df,100)
+>>Wall time: 35.9 ms
+>>(4196, ['Cherry', 'Eggplant', 'Fennel', 'Lettuce', 'Vegetable'])
+
+%time weight_dp(df,1000)
+>>Wall time: 495 ms
+>>(19532,
+ ['Avocado',
+  'Banana',
+  'Broccoli',
+  'Cabbage',
+  'Carrot',
+  'Cherry',
+  'Corn',
+  'Cucumber',
+  'Daikon',
+  'Eggplant',
+  'Fennel',
+  'Fig',
+  'Fruit',
+  'Garlic',
+  'Honeydew',
+  'Jackfruit',
+  'Jellybean',
+  'Lettuce',
+  'Papaya',
+  'Pear',
+  'Pepper',
+  'Soybean',
+  'Tomato',
+  'Vegetable',
+  'Watermelon',
+  'Zucchini'])
+
+#–â‚Q
+def dijkstra(adj,s,g):
+    vs = adj.keys()
+    dist = {v:float('inf') for v in vs}
+    root = {v:[s] for v in vs}
+    dist[s] = 0 # s ‚Ü‚Å‚Ì‹——£‚Í0
+    fixed = set() # Å’Z‹——£‚ªŠm’è‚µ‚½“_W‡
+    while True:
+        min_dist = float('inf')
+        for v in vs:
+            if (v not in fixed) and min_dist>dist[v]:
+                min_dist=dist[v]
+                min_v = v
+        if min_dist==float('inf'): break
+        fixed.add(min_v)
+        for (u,d) in adj[min_v]:
+            if dist[u] > dist[min_v]+d:
+                root[u] = copy.deepcopy(root[min_v])
+                root[u].append(u) #ƒ‹[ƒgXV
+                dist[u] = dist[min_v]+d # Žb’è‹——£‚ðXV
+            
+    print(dist,root[g])
+
+adj = {1:[(2,7),(3,2),(4,6)],
+2:[(4,8),(5,5)],
+3:[(4,4)],
+4:[(5,7)],
+5:[]}
+dijkstra(adj,1,5)
+>>{1: 0, 2: 7, 3: 2, 4: 6, 5: 12} [1, 2, 5]

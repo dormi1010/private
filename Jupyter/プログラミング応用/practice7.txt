@@ -1,0 +1,80 @@
+14B12785 藤森慶一郎
+
+#問１
+import random
+import itertools
+N=1000
+random.seed(0)
+ps = [(random.random(),random.random()) for i in range(N)]
+def dist(s,t): return ((s[0]-t[0])**2+(s[1]-t[1])**2)**(0.5)
+def total_dist(ps,order):
+    n = len(ps)
+    return sum([dist(ps[order[i]], ps[order[(i+1)%n]]) for i in range(n)])
+
+
+def two_opt(ps): #試しに2optで計算
+    n = len(ps)
+    res = list(range(n))
+    update = True
+    while update:
+        update = False
+        print(total_dist(ps,res))
+        for (i,j) in itertools.combinations(range(n),2):
+            if ((dist(ps[res[i]],ps[res[i+1]])+dist(ps[res[j]],ps[res[(j+1)%n]]))>(dist(ps[res[i]],ps[res[j]])+dist(ps[res[i+1]],ps[res[(j+1)%n]]))):
+                res[i+1:j+1] = res[j:i:-1]
+                update = True
+    return res
+
+%time two_opt(ps)
+>>522.0184208022752
+41.180816433862226
+30.21605716842022
+27.301614339715485
+26.528319353612257
+26.145821880721133
+26.12872916112596
+Wall time: 9.33 s
+#長さ26以下の解を発見できなかった
+
+
+def m_2opt(ps): #初期解をランダム化
+    n = len(ps)
+    res = list(np.random.permutation(N))
+    update = True
+    while update:
+        update = False
+        for (i,j) in itertools.combinations(range(n),2):
+            if ((dist(ps[res[i]],ps[res[i+1]])+dist(ps[res[j]],ps[res[(j+1)%n]]))>(dist(ps[res[i]],ps[res[j]])+dist(ps[res[i+1]],ps[res[(j+1)%n]]))):
+                res[i+1:j+1] = res[j:i:-1]
+                update = True
+    return res, total_dist(ps,res)
+
+#多スタート戦略
+import numpy as np
+
+N_START = 10
+order_best = None
+score_best = float('inf')
+
+for x in range(N_START):
+    order,score = m_2opt(ps)
+    print(score)
+    if score < score_best:
+        score_best = score
+        order_best = order
+
+print('多スタート戦略で得られた経路の総移動距離 = {}'.format(score_best))
+
+>>
+26.19298907639336
+26.352389689332387
+25.432036771248935
+26.07436380524649
+25.916921135165225
+26.031955678693926
+26.057495222771422
+26.00406036345372
+26.145220986360457
+25.711661155628864
+多スタート戦略で得られた経路の総移動距離 = 25.432036771248935
+##長さ26以下の解を発見できた
