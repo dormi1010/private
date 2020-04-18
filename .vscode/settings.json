@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\f14ke\\Anaconda3",
+    "python.pythonPath": "C:\\Users\\f14ke\\Anaconda3\\envs\\defenv\\python.exe",
     "terminal.integrated.shell.windows": "C:\\windows\\System32\\cmd.exe",
     "git.autofetch": true,
     "git.confirmSync": false,
