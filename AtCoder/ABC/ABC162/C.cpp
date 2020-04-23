@@ -16,8 +16,8 @@ int main() {
   for (int i = 1; i <= K; i++) {
     for (int j = 1; j <= K; j++) {
       for (int k = 1; k <= K; k++) {
-        int tmp = gcd(i, j);
-        ans += gcd(tmp, k);
+        int tmp = std::gcd(i, j);
+        ans += std::gcd(tmp, k);
       }
     }
   }

@@ -4,7 +4,7 @@
     "git.autofetch": true,
     "git.confirmSync": false,
     "window.zoomLevel": 0,
-    "C_Cpp.default.cppStandard": "c++14",
+    "C_Cpp.default.cppStandard": "c++17",
     "editor.renderWhitespace": "all",
     "C_Cpp.clang_format_style": "Google",
     "diffEditor.renderSideBySide": false, // Git の差分を行内に表示
