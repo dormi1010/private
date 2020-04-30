@@ -16,21 +16,11 @@ int main() {
   // problem"
   int N;
   cin >> N;
-  vi a(N);
-  REP(i, N) cin >> a[i];
-  int tmp = 1, ans = 0;
-  for (auto x : a) {
-    if (x != tmp) {
-      ans++;
-    } else {
-      tmp++;
-    }
+  string S, T, U;
+  cin >> S >> T;
+  REP(i, N) {
+    U.push_back(S[i]);
+    U.push_back(T[i]);
   }
-  if (ans == N) {
-    cout << -1 << endl;
-    return 0;
-  } else {
-    cout << ans << endl;
-    return 0;
-  }
+  cout << U << endl;
 }

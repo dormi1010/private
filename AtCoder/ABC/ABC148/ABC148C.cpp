@@ -8,29 +8,20 @@ using Pl = pair<ll, ll>;
 using Vl = vector<ll>;
 using vi = vector<int>;
 using Graph = vector<vi>;
+int gcd(int a, int b) {
+  if (a % b == 0) {
+    return (b);
+  } else {
+    return (gcd(b, a % b));
+  }
+}
 
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
   // std::cout << std::fixed << std::setprecision(15); //"for float-base
   // problem"
-  int N;
-  cin >> N;
-  vi a(N);
-  REP(i, N) cin >> a[i];
-  int tmp = 1, ans = 0;
-  for (auto x : a) {
-    if (x != tmp) {
-      ans++;
-    } else {
-      tmp++;
-    }
-  }
-  if (ans == N) {
-    cout << -1 << endl;
-    return 0;
-  } else {
-    cout << ans << endl;
-    return 0;
-  }
+  ll A, B;
+  cin >> A >> B;
+  cout << A * B / gcd(A, B) << endl;
 }

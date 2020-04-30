@@ -14,23 +14,8 @@ int main() {
   ios::sync_with_stdio(false);
   // std::cout << std::fixed << std::setprecision(15); //"for float-base
   // problem"
-  int N;
-  cin >> N;
-  vi a(N);
-  REP(i, N) cin >> a[i];
-  int tmp = 1, ans = 0;
-  for (auto x : a) {
-    if (x != tmp) {
-      ans++;
-    } else {
-      tmp++;
-    }
-  }
-  if (ans == N) {
-    cout << -1 << endl;
-    return 0;
-  } else {
-    cout << ans << endl;
-    return 0;
-  }
+  ll N, X;
+  string S;
+  cin >> N >> X;
+  cout << 6 - N - X << endl;
 }
