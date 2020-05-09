@@ -20,7 +20,7 @@
     "[cpp]": {
         "editor.tabSize": 4, //tab幅4
     },
-    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.errorSquiggles": "Enabled",
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
