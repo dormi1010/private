@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\f14ke\\Anaconda3\\envs\\defenv\\python.exe",
+    "python.pythonPath": "C:\\Users\\Keiichiro\\Anaconda3\\python.exe",
     "terminal.integrated.shell.windows": "C:\\windows\\System32\\cmd.exe",
     "git.autofetch": true,
     "git.confirmSync": false,
@@ -20,7 +20,6 @@
     "[cpp]": {
         "editor.tabSize": 4, //tab幅4
     },
-    "C_Cpp.errorSquiggles": "Enabled",
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
