@@ -13,6 +13,12 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);  //"for float-base problem"
-
+  double W, H, x, y;
+  cin >> W >> H >> x >> y;
+  if (x == W / 2.0 && y == H / 2.0) {
+    cout << (W * H / 2.0) << " " << 1 << endl;
+  } else {
+    cout << (W * H / 2.0) << " " << 0 << endl;
+  }
   return 0;
 }
