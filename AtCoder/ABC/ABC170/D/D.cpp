@@ -1,3 +1,5 @@
+//計算量O(N^2)なのでTLE
+
 #pragma GCC optimize("Ofast")
 #include <bits/stdc++.h>
 #define REP(i, n) for (long long i = 0; i < (long long)n; i++)
