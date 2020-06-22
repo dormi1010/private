@@ -1,4 +1,3 @@
-//二項計算（組合せnCk mod p）の高速化
 #include <bits/stdc++.h>
 #define REP(i, n) for (long long i = 0; i < (long long)n; i++)
 //#define _GLIBCXX_DEBUG
@@ -10,7 +9,7 @@ using Vl = vector<ll>;
 using vi = vector<int>;
 using Graph = vector<vi>;
 
-const int MAX = 510000;
+const int MAX = 2001000;
 const ll MOD = 1000000007;
 
 ll fac[MAX], finv[MAX], inv[MAX];
@@ -46,4 +45,29 @@ ll modpow(ll n, ll t) {
     }
   }
   return ret;
+}
+
+int main() {
+  cin.tie(0);
+  ios::sync_with_stdio(false);
+  // std::cout << std::fixed << std::setprecision(15); //"for float-base
+  // problem"
+  string S;
+  ll K;
+  cin >> K >> S;
+  ll size = S.size();
+  ll ans = 0;
+
+  COMinit();
+
+  REP(i, K + 1) {
+    ll p = modpow(26, i);
+    ll c = COM((size + K - 1 - i), (size - 1));
+    ll p2 = modpow(25, (K - i));
+    // cout << c << " " << p << " " << p2 << endl;
+    ans += (((p * c) % MOD) * p2) % MOD;
+    ans %= MOD;
+  }
+
+  cout << ans << endl;
 }
