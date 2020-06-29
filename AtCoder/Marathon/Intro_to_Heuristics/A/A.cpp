@@ -59,6 +59,11 @@ int main() {
   // std::cout << std::fixed << std::setprecision(15); //"for float-base
   // problem"
 
+  random_device rnd;
+  mt19937 mt((int)time(0));
+  uniform_int_distribution<> rand365(0, 364);
+  uniform_int_distribution<> rand26(0, 25);
+
   cin >> D;
   REP(i, 26) cin >> C.at(i);
   REP(i, D) REP(j, 26) cin >> S.at(i).at(j);
@@ -91,11 +96,6 @@ int main() {
     }
     cout << ans << endl;
   */
-
-  random_device rnd;
-  mt19937 mt((int)time(0));
-  uniform_int_distribution<> rand365(0, 364);
-  uniform_int_distribution<> rand26(0, 25);
 
   // Query
   REP(i, 100000) {
