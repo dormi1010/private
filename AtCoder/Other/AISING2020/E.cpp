@@ -14,9 +14,7 @@ void solve() {
   ll ans = 0;
   cin >> N;
   vector<tuple<int, int, int>> L;
-  vector<tuple<int, int, int>> LX;
   vector<tuple<int, int, int>> R;
-  vector<tuple<int, int, int>> RX;
   vector<tuple<int, int, int>> E;
   REP(i, N) {
     int k, l, r;
@@ -38,50 +36,36 @@ void solve() {
   }
 
   sort(L.begin(), L.end());
-  sort(R.begin(), R.end());
-  priority_queue<int> sa;
+  sort(R.begin(), R.end(),greater());
+  priority_queue<int, vector<int>, greater<int>> pq;
   vi Lsa, Rsa;
-  int ind = 1;
+  int ind = 0, LX = 0;
   for (auto t : L) {
-    //入れなかったのは横に置いとく
-    if (get<0>(t) < ind) {
-      ans += get<2>(t);
-      LX.push_back(t);
-      continue;
-    }
     ind++;
     ans += get<1>(t);
-    Lsa.push_back(get<1>(t) - get<2>(t));
+    int sa = (get<1>(t) - get<2>(t));
+    pq.push(sa);
+    while (ind > get<0>(t)) {
+      ind--;
+      ans -= pq.top();
+      pq.pop();
+      LX++;
+    }
   }
-  ind += E.size() + LX.size();
+  ind = N;
 
+  priority_queue<int, vector<int>, greater<int>> qp;
   for (auto t : R) {
-    //入れなかったのは横に置いとく
-    if (get<0>(t) > ind) {
-      ans += get<1>(t);
-      RX.push_back(t);
-      ind++;
-      continue;
-    }
-    ind++;
+    ind--;
     ans += get<2>(t);
-    Rsa.push_back(get<2>(t) - get<1>(t));
-  }
-
-  for (auto t : LX) {
-    int sa = get<1>(t) - get<2>(t);
-    int k = get<0>(t);
-    int minsa = INF, mink = INF;
-    REP(i, k) {
-      if (minsa > Lsa.at(i)) {
-        minsa = Lsa.at(i);
-        mink = i;
-      }
+    int sa = (get<2>(t) - get<1>(t));
+    qp.push(sa);
+    while (ind < get<0>(t)) {
+      ind++;
+      ans -= qp.top();
+      qp.pop();
     }
-    if (sa > minsa) {
-      ans += (sa - minsa);
-      Lsa.at(mink) = sa;
-    }
+    //cout << ans << " ";
   }
 
   cout << ans << endl;
