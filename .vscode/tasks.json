@@ -13,7 +13,7 @@
 				"${fileDirname}\\a.out"
 			],
 			"options": {
-				"cwd": "C:\\TDM-GCC-64\\bin"
+				"cwd": "C:\\MinGW\\bin"
 			},
 			"problemMatcher": [
 				"$gcc"
